@@ -1,0 +1,266 @@
+import { ROUTES } from "./constants";
+
+export type UserRole =
+  | "employee"
+  | "hr"
+  | "project_manager"
+  | "admin"
+  | "system_admin"
+  | "executive";
+
+export interface MockUser {
+  id: string;
+  loginId: string;
+  password: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  department: string;
+  designation: string;
+  employeeId: string;
+  avatar?: string;
+}
+
+export const ROLE_LABELS: Record<UserRole, string> = {
+  employee: "Employee",
+  hr: "HR",
+  project_manager: "Manager",
+  admin: "Admin",
+  system_admin: "System Admin",
+  executive: "Executive",
+};
+
+export const MOCK_USERS: MockUser[] = [
+  {
+    id: "EMP001",
+    loginId: "employee",
+    password: "employee123",
+    name: "Kalai Priya",
+    email: "employee@ionixx.com",
+    role: "employee",
+    department: "Engineering",
+    designation: "Software Developer",
+    employeeId: "EMP00101",
+  },
+  {
+    id: "HR001",
+    loginId: "hr",
+    password: "hr123",
+    name: "Priya Ramesh",
+    email: "hr@ionixx.com",
+    role: "hr",
+    department: "Human Resources",
+    designation: "HR Manager",
+    employeeId: "HR00102",
+  },
+  {
+    id: "PM001",
+    loginId: "pm",
+    password: "pm123",
+    name: "Priya Kumar",
+    email: "pm@ionixx.com",
+    role: "project_manager",
+    department: "Engineering",
+    designation: "Project Manager",
+    employeeId: "PM00103",
+  },
+  {
+    id: "ADM001",
+    loginId: "admin",
+    password: "admin123",
+    name: "Vikram Shah",
+    email: "admin@ionixx.com",
+    role: "admin",
+    department: "Operations",
+    designation: "Administrator",
+    employeeId: "ADM00104",
+  },
+  {
+    id: "SYS001",
+    loginId: "sysadmin",
+    password: "sysadmin123",
+    name: "kaviya Iyer",
+    email: "sysadmin@ionixx.com",
+    role: "system_admin",
+    department: "IT",
+    designation: "System Administrator",
+    employeeId: "SYS00105",
+  },
+  {
+    id: "EXE001",
+    loginId: "executive",
+    password: "executive123",
+    name: "Ananya Nair",
+    email: "executive@ionixx.com",
+    role: "executive",
+    department: "Executive Office",
+    designation: "Chief Executive",
+    employeeId: "EXE00106",
+  },
+];
+
+export const validateCredentials = (
+  loginId: string,
+  password: string
+): MockUser | null => {
+  const id = loginId.trim().toLowerCase();
+  const match = MOCK_USERS.find(
+    (u) =>
+      (u.loginId.toLowerCase() === id || u.email.toLowerCase() === id) &&
+      u.password === password
+  );
+  return match ?? null;
+};
+
+export interface SidebarItem {
+  id: string;
+  label: string;
+  icon: string;
+  path: string;
+}
+
+const ITEM = {
+  // Common
+  dashboard: { id: "dashboard", label: "Dashboard", icon: "Home", path: ROUTES.Dashboard },
+  profile: { id: "profile", label: "Profile", icon: "User", path: ROUTES.Profile },
+
+  // Employee
+  attendance: { id: "attendance", label: "Attendance", icon: "Clock", path: ROUTES.Attendance },
+  timeTracker: { id: "time-tracker", label: "Time Tracker", icon: "Timer", path: ROUTES.TimeTracker },
+  leave: { id: "leave", label: "Leave Tracker", icon: "Calendar", path: ROUTES.Leave },
+  tasks: { id: "tasks", label: "Tasks", icon: "CheckSquare", path: ROUTES.Tasks },
+  files: { id: "files", label: "Files", icon: "Folder", path: ROUTES.Files },
+  organization: { id: "organization", label: "Organization", icon: "Building", path: ROUTES.Organization },
+  reports: { id: "reports", label: "Reports", icon: "BarChart3", path: ROUTES.Reports },
+
+  // Manager (MSS)
+  teamOverview: { id: "team", label: "Team Overview", icon: "Users", path: ROUTES.TeamOverview },
+  approvals: { id: "approvals", label: "Approvals", icon: "CheckCheck", path: ROUTES.Approvals },
+  attendanceMonitoring: { id: "attendance-monitoring", label: "Attendance Monitoring", icon: "ClipboardCheck", path: ROUTES.AttendanceMonitoring },
+  performanceReview: { id: "performance-review", label: "Performance Review", icon: "Star", path: ROUTES.PerformanceReview },
+
+  // HR
+  employeeManagement: { id: "employee-management", label: "Employee Management", icon: "UserCog", path: ROUTES.EmployeeManagement },
+  recruitment: { id: "recruitment", label: "Recruitment", icon: "Briefcase", path: ROUTES.Recruitment },
+  training: { id: "training", label: "Training", icon: "GraduationCap", path: ROUTES.Training },
+  compliance: { id: "compliance", label: "Compliance", icon: "ShieldCheck", path: ROUTES.Compliance },
+
+  // Executive
+  analytics: { id: "analytics", label: "Analytics", icon: "LineChart", path: ROUTES.Analytics },
+  kpiMonitoring: { id: "kpi-monitoring", label: "KPI Monitoring", icon: "Gauge", path: ROUTES.KpiMonitoring },
+
+  // System Admin
+  userManagement: { id: "user-management", label: "User Management", icon: "Users2", path: ROUTES.UserManagement },
+  rolesPermissions: { id: "roles-permissions", label: "Role & Permissions", icon: "Lock", path: ROUTES.RolesPermissions },
+  systemConfig: { id: "system-config", label: "System Config", icon: "Settings", path: ROUTES.SystemConfig },
+  integrations: { id: "integrations", label: "Integrations", icon: "Plug", path: ROUTES.Integrations },
+  logs: { id: "logs", label: "Logs", icon: "ScrollText", path: ROUTES.Logs },
+} as const satisfies Record<string, SidebarItem>;
+
+export const ROLE_SIDEBAR_ITEMS: Record<UserRole, SidebarItem[]> = {
+  employee: [
+    ITEM.dashboard,
+    ITEM.profile,
+    ITEM.attendance,
+    ITEM.timeTracker,
+    ITEM.leave,
+    ITEM.tasks,
+    ITEM.files,
+    ITEM.organization,
+  ],
+  project_manager: [
+    ITEM.dashboard,
+    ITEM.profile,
+    ITEM.teamOverview,
+    ITEM.approvals,
+    ITEM.attendanceMonitoring,
+    ITEM.performanceReview,
+    ITEM.reports,
+  ],
+  hr: [
+    ITEM.dashboard,
+    ITEM.profile,
+    ITEM.employeeManagement,
+    ITEM.recruitment,
+    ITEM.training,
+    ITEM.compliance,
+    ITEM.reports,
+  ],
+  executive: [
+    ITEM.dashboard,
+    ITEM.profile,
+    ITEM.analytics,
+    ITEM.kpiMonitoring,
+    ITEM.reports,
+  ],
+  system_admin: [
+    ITEM.dashboard,
+    ITEM.profile,
+    ITEM.userManagement,
+    ITEM.rolesPermissions,
+    ITEM.systemConfig,
+    ITEM.integrations,
+    ITEM.logs,
+  ],
+  admin: [
+    ITEM.dashboard,
+    ITEM.profile,
+    ITEM.teamOverview,
+    ITEM.approvals,
+    ITEM.attendanceMonitoring,
+    ITEM.performanceReview,
+    ITEM.employeeManagement,
+    ITEM.recruitment,
+    ITEM.training,
+    ITEM.compliance,
+    ITEM.analytics,
+    ITEM.kpiMonitoring,
+    ITEM.userManagement,
+    ITEM.rolesPermissions,
+    ITEM.systemConfig,
+    ITEM.integrations,
+    ITEM.logs,
+    ITEM.reports,
+  ],
+};
+
+export const ROLE_ROUTE_ACCESS: Record<string, UserRole[]> = {
+  // Common
+  [ROUTES.Dashboard]: ["employee", "hr", "project_manager", "admin", "system_admin", "executive"],
+  [ROUTES.Profile]: ["employee", "hr", "project_manager", "admin", "system_admin", "executive"],
+  [ROUTES.Reports]: ["hr", "project_manager", "admin", "executive"],
+
+  // Employee
+  [ROUTES.Attendance]: ["employee", "admin"],
+  [ROUTES.TimeTracker]: ["employee", "admin"],
+  [ROUTES.Leave]: ["employee", "admin"],
+  [ROUTES.Tasks]: ["employee", "admin"],
+  [ROUTES.Files]: ["employee", "admin"],
+  [ROUTES.Organization]: ["employee", "admin"],
+
+  // Manager (MSS)
+  [ROUTES.TeamOverview]: ["project_manager", "admin"],
+  [ROUTES.Approvals]: ["project_manager", "admin"],
+  [ROUTES.AttendanceMonitoring]: ["project_manager", "admin"],
+  [ROUTES.PerformanceReview]: ["project_manager", "admin"],
+
+  // HR
+  [ROUTES.EmployeeManagement]: ["hr", "admin"],
+  [ROUTES.Recruitment]: ["hr", "admin"],
+  [ROUTES.Training]: ["hr", "admin"],
+  [ROUTES.Compliance]: ["hr", "admin"],
+
+  // Executive
+  [ROUTES.Analytics]: ["executive", "admin"],
+  [ROUTES.KpiMonitoring]: ["executive", "admin"],
+
+  // System Admin
+  [ROUTES.UserManagement]: ["system_admin", "admin"],
+  [ROUTES.RolesPermissions]: ["system_admin", "admin"],
+  [ROUTES.SystemConfig]: ["system_admin", "admin"],
+  [ROUTES.Integrations]: ["system_admin", "admin"],
+  [ROUTES.Logs]: ["system_admin", "admin"],
+};
+
+export const DEMO_ACCOUNTS: Array<{ role: UserRole; loginId: string; password: string }> =
+  MOCK_USERS.map((u) => ({ role: u.role, loginId: u.loginId, password: u.password }));
