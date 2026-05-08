@@ -96,7 +96,7 @@ const ForgotForm = () => {
           />
           
           <Button
-            className="w-full h-12 ionixx_icon-gradient hover:from-[#505AC9] hover:via-[#464EB8] hover:to-[#3FCCE8] text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-[1.02] focus:ring-4 focus:ring-violet-200"
+            className="w-full h-12 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-[1.02] focus:ring-4 focus:ring-violet-200"
             type="submit"
             disabled={loading}
           >
@@ -113,7 +113,7 @@ const ForgotForm = () => {
           <Button
             type="button"
             variant="outline"
-            className="w-full h-12 border-[#3FCCE8] text-white ionixx_icon-gradient hover:from-[#505AC9] hover:via-[#464EB8] hover:to-[#3FCCE8] rounded-lg transition-all duration-200"
+            className="w-full h-12 text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 rounded-lg transition-all duration-200"
             onClick={() => navigate(ROUTES.Login)}
           >
             Back to Login

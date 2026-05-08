@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import {
   Star,
   Target,
@@ -78,7 +78,7 @@ export default function PerformanceReview() {
   return (
     <MainLayout>
       <div className="max-w-7xl mx-auto space-y-6">
-        <div className="bg-gradient-to-r from-[#464EB8] via-[#3FCCE8] to-[#505AC9] rounded-2xl p-8 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10 flex items-center gap-4">
             <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
@@ -87,7 +87,7 @@ export default function PerformanceReview() {
             <div>
               <h1 className="text-3xl font-bold">Performance Review</h1>
               <p className="text-white/90 mt-1">
-                {summary.total} reviews · {summary.submitted} submitted · {summary.inReview} in review · {summary.draft} draft
+                {summary.total} reviews Â· {summary.submitted} submitted Â· {summary.inReview} in review Â· {summary.draft} draft
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function PerformanceReview() {
                     >
                       <div className="flex items-center gap-3">
                         <Avatar className="w-10 h-10">
-                          <AvatarFallback className="bg-gradient-to-br from-[#464EB8] to-[#3FCCE8] text-white text-xs font-semibold">
+                          <AvatarFallback className="bg-gradient-to-br from-indigo-600 to-violet-600 text-white text-xs font-semibold">
                             {initials(p.employeeName)}
                           </AvatarFallback>
                         </Avatar>
@@ -160,14 +160,14 @@ export default function PerformanceReview() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <Avatar className="w-12 h-12">
-                          <AvatarFallback className="bg-gradient-to-br from-[#464EB8] to-[#3FCCE8] text-white font-semibold">
+                          <AvatarFallback className="bg-gradient-to-br from-indigo-600 to-violet-600 text-white font-semibold">
                             {initials(selected.employeeName)}
                           </AvatarFallback>
                         </Avatar>
                         <div>
                           <CardTitle className="text-xl">{selected.employeeName}</CardTitle>
                           <CardDescription>
-                            {selected.designation} · {selected.reviewCycle}
+                            {selected.designation} Â· {selected.reviewCycle}
                           </CardDescription>
                         </div>
                       </div>
@@ -180,7 +180,7 @@ export default function PerformanceReview() {
                     <div className="grid grid-cols-3 gap-3">
                       <MiniStat
                         label="Self rating"
-                        value={selected.selfRating !== null ? `${selected.selfRating}/5` : "—"}
+                        value={selected.selfRating !== null ? `${selected.selfRating}/5` : "â€”"}
                       />
                       <MiniStat
                         label="Manager rating"
@@ -345,7 +345,7 @@ function RatingPicker({
         })}
         {value !== null && (
           <span className="ml-3 text-sm font-medium text-gray-700">
-            {value}/5 · {labels[value - 1]}
+            {value}/5 Â· {labels[value - 1]}
           </span>
         )}
       </div>

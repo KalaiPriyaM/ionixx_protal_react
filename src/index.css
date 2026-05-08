@@ -81,38 +81,38 @@
 
 /* Ionixx Portal Theme Styles */
 .ionixx-gradient {
-  background: linear-gradient(135deg, #464EB8 0%, #3FCCE8 50%, #505AC9 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
 }
 
 .ionixx-gradient-horizontal {
-  background: linear-gradient(90deg, #464EB8 0%, #3FCCE8 50%, #505AC9 100%);
+  background: linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%);
 }
 
 .ionixx-gradient-vertical {
-  background: linear-gradient(180deg, #464EB8 0%, #3FCCE8 50%, #505AC9 100%);
+  background: linear-gradient(180deg, #4F46E5 0%, #7C3AED 100%);
 }
 
 .ionixx-text-gradient {
-  background: linear-gradient(135deg, #464EB8 0%, #3FCCE8 50%, #505AC9 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .ionixx-shadow {
-  box-shadow: 0 4px 14px 0 rgba(70, 78, 184, 0.25);
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.25);
 }
 
 .ionixx-shadow-lg {
-  box-shadow: 0 10px 25px 0 rgba(70, 78, 184, 0.3);
+  box-shadow: 0 10px 25px 0 rgba(79, 70, 229, 0.3);
 }
 
 .ionixx-border-gradient {
   border: 2px solid transparent;
   background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, #464EB8 0%, #3FCCE8 50%, #505AC9 100%) border-box;
+              linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%) border-box;
 }
 
 .ionixx_icon-gradient {
-  background: linear-gradient(135deg, #464EB8 0%, #505AC9 50%, #3FCCE8 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
 }

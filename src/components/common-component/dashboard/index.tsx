@@ -91,7 +91,7 @@ export default function Dashboard() {
     <MainLayout>
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Welcome Header */}
-        <div className="bg-gradient-to-r from-[#464EB8] via-[#3FCCE8] to-[#505AC9] rounded-2xl p-8 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10">
             <div className="flex items-center justify-between">

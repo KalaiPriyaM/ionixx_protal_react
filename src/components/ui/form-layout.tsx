@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./card";
 
 interface FormLayoutProps {
@@ -9,7 +9,7 @@ interface FormLayoutProps {
 
 const FormLayout: React.FC<FormLayoutProps> = ({ children, title, description }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#464EB8] via-[#3FCCE8] to-[#505AC9] p-4 relative">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-violet-600 p-4 relative">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
@@ -40,7 +40,7 @@ const FormLayout: React.FC<FormLayoutProps> = ({ children, title, description })
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-purple-200 text-sm">
-            © 2025 Ionixx Technologies. All rights reserved.
+            Â© 2025 Ionixx Technologies. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import {
   CheckCheck,
   CheckCircle2,
@@ -70,8 +70,8 @@ export default function Approvals() {
     if (target) {
       setToast(
         decision === "approved"
-          ? `Approved ${target.employeeName}'s request — notification sent.`
-          : `Rejected ${target.employeeName}'s request — notification sent.`
+          ? `Approved ${target.employeeName}'s request â€” notification sent.`
+          : `Rejected ${target.employeeName}'s request â€” notification sent.`
       );
       window.setTimeout(() => setToast(null), 3500);
     }
@@ -82,7 +82,7 @@ export default function Approvals() {
   return (
     <MainLayout>
       <div className="max-w-6xl mx-auto space-y-6">
-        <div className="bg-gradient-to-r from-[#464EB8] via-[#3FCCE8] to-[#505AC9] rounded-2xl p-8 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10 flex items-center gap-4">
             <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
@@ -91,7 +91,7 @@ export default function Approvals() {
             <div>
               <h1 className="text-3xl font-bold">Approvals</h1>
               <p className="text-white/90 mt-1">
-                {grouped.pending.length} pending · {grouped.approved.length} approved · {grouped.rejected.length} rejected
+                {grouped.pending.length} pending Â· {grouped.approved.length} approved Â· {grouped.rejected.length} rejected
               </p>
             </div>
           </div>
@@ -237,14 +237,14 @@ function RequestRow({
     <div className="border border-gray-200 rounded-lg p-4 hover:border-[#464EB8]/40 hover:shadow-sm transition-all">
       <div className="flex items-start gap-4">
         <Avatar className="w-11 h-11">
-          <AvatarFallback className="bg-gradient-to-br from-[#464EB8] to-[#3FCCE8] text-white font-semibold">
+          <AvatarFallback className="bg-gradient-to-br from-indigo-600 to-violet-600 text-white font-semibold">
             {initials(request.employeeName)}
           </AvatarFallback>
         </Avatar>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-1">
             <p className="font-semibold text-gray-900">{request.employeeName}</p>
-            <span className="text-xs text-gray-500">·</span>
+            <span className="text-xs text-gray-500">Â·</span>
             <span className="text-xs text-gray-500">{request.id}</span>
             <Badge className={typeColor[request.type]}>
               <span className="flex items-center gap-1">
@@ -255,8 +255,8 @@ function RequestRow({
           </div>
           <p className="text-sm text-gray-700">
             {formatDate(request.startDate)}
-            {request.startDate !== request.endDate && <> → {formatDate(request.endDate)}</>}
-            <span className="text-gray-400"> · </span>
+            {request.startDate !== request.endDate && <> â†’ {formatDate(request.endDate)}</>}
+            <span className="text-gray-400"> Â· </span>
             <span className="font-medium">
               {request.days} day{request.days > 1 ? "s" : ""}
             </span>
@@ -267,7 +267,7 @@ function RequestRow({
             {request.decidedDate && request.decidedBy && (
               <>
                 {" "}
-                · {request.status === "approved" ? "Approved" : "Rejected"} by {request.decidedBy} on {formatDate(request.decidedDate)}
+                Â· {request.status === "approved" ? "Approved" : "Rejected"} by {request.decidedBy} on {formatDate(request.decidedDate)}
               </>
             )}
           </p>

@@ -136,7 +136,7 @@ const LoginForm = () => {
            <Button
              data-testid="login-button"
              variant="ionixx"
-             className="w-full h-12 font-medium rounded-lg ionixx_icon-gradient hover:from-[#505AC9] hover:via-[#464EB8] hover:to-[#3FCCE8] transition-all duration-300 transform hover:scale-[1.02] focus:ring-4 focus:ring-[#464EB8]/20 shadow-lg hover:shadow-xl"
+             className="w-full h-12 font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:ring-4 focus:ring-indigo-600/20 shadow-lg hover:shadow-xl"
              type="submit"
              disabled={loading}
            >

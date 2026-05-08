@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import {
   ClipboardCheck,
   CheckCircle2,
@@ -115,7 +115,7 @@ export default function AttendanceMonitoring() {
   return (
     <MainLayout>
       <div className="max-w-7xl mx-auto space-y-6">
-        <div className="bg-gradient-to-r from-[#464EB8] via-[#3FCCE8] to-[#505AC9] rounded-2xl p-8 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10 flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -131,7 +131,7 @@ export default function AttendanceMonitoring() {
               <p className="text-xs uppercase tracking-wider text-white/70">Attendance rate</p>
               <p className="text-3xl font-bold">
                 {summary.total === 0
-                  ? "—"
+                  ? "â€”"
                   : `${Math.round(((summary.present + summary.late) / summary.total) * 100)}%`}
               </p>
             </div>
@@ -243,7 +243,7 @@ export default function AttendanceMonitoring() {
                         <td className="py-3 pr-4">
                           <div className="flex items-center gap-3">
                             <Avatar className="w-8 h-8">
-                              <AvatarFallback className="bg-gradient-to-br from-[#464EB8] to-[#3FCCE8] text-white text-xs font-semibold">
+                              <AvatarFallback className="bg-gradient-to-br from-indigo-600 to-violet-600 text-white text-xs font-semibold">
                                 {initials(e.employeeName)}
                               </AvatarFallback>
                             </Avatar>
@@ -259,8 +259,8 @@ export default function AttendanceMonitoring() {
                             <Badge className={meta.badge}>{meta.label}</Badge>
                           </span>
                         </td>
-                        <td className="py-3 px-2 text-gray-700">{e.checkIn ?? "—"}</td>
-                        <td className="py-3 px-2 text-gray-700">{e.checkOut ?? "—"}</td>
+                        <td className="py-3 px-2 text-gray-700">{e.checkIn ?? "â€”"}</td>
+                        <td className="py-3 px-2 text-gray-700">{e.checkOut ?? "â€”"}</td>
                         <td className="py-3 px-2 max-w-[18ch]">
                           {note ? (
                             <span className="text-xs text-gray-600 line-clamp-2" title={note}>
@@ -269,7 +269,7 @@ export default function AttendanceMonitoring() {
                           ) : e.exception ? (
                             <span className="text-xs text-amber-700">{e.exception}</span>
                           ) : (
-                            <span className="text-xs text-gray-400">—</span>
+                            <span className="text-xs text-gray-400">â€”</span>
                           )}
                         </td>
                         <td className="py-3 pl-2 text-right">
@@ -357,7 +357,7 @@ function NoteDialog({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           rows={4}
-          placeholder="e.g. Approved late entry — informed via Slack."
+          placeholder="e.g. Approved late entry â€” informed via Slack."
           className="w-full mt-4 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#464EB8]/30"
         />
         <div className="flex justify-end gap-2 mt-4">

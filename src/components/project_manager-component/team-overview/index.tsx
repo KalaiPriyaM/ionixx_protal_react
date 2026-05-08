@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import {
   Users,
   Search,
@@ -62,7 +62,7 @@ export default function TeamOverview() {
   return (
     <MainLayout>
       <div className="max-w-7xl mx-auto space-y-6">
-        <div className="bg-gradient-to-r from-[#464EB8] via-[#3FCCE8] to-[#505AC9] rounded-2xl p-8 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-indigo-600 to-violet-600 rounded-2xl p-8 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10 flex items-center gap-4">
             <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
@@ -71,7 +71,7 @@ export default function TeamOverview() {
             <div>
               <h1 className="text-3xl font-bold">Team Overview</h1>
               <p className="text-white/90 mt-1">
-                {stats.total} team members · {stats.active} in office · {stats.remote} remote · {stats.onLeave} on leave
+                {stats.total} team members Â· {stats.active} in office Â· {stats.remote} remote Â· {stats.onLeave} on leave
               </p>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function TeamOverview() {
                 >
                   <div className="flex items-start gap-3">
                     <Avatar className="w-12 h-12">
-                      <AvatarFallback className="bg-gradient-to-br from-[#464EB8] to-[#3FCCE8] text-white font-semibold">
+                      <AvatarFallback className="bg-gradient-to-br from-indigo-600 to-violet-600 text-white font-semibold">
                         {initials(m.name)}
                       </AvatarFallback>
                     </Avatar>
@@ -186,7 +186,7 @@ function ProfileDrawer({ member, onClose }: { member: TeamMember; onClose: () =>
     <div className="fixed inset-0 z-50 flex">
       <div className="flex-1 bg-black/40" onClick={onClose} />
       <aside className="w-full max-w-md bg-white shadow-2xl flex flex-col">
-        <div className="bg-gradient-to-r from-[#464EB8] to-[#3FCCE8] p-6 text-white relative">
+        <div className="bg-gradient-to-r from-indigo-600 to-violet-600 p-6 text-white relative">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-md bg-white/20 hover:bg-white/30 transition-colors"
